@@ -102,7 +102,7 @@ export default function Index() {
                     <div className="text-center">
                       <Link to={"/project/" + item.slug}>
                         <Img
-                          className="no-drag max-h-[70vh] w-full"
+                          className="no-drag max-h-[60vh] w-full"
                           src={item.thumbnail.url}
                         />
                         <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
@@ -122,7 +122,7 @@ export default function Index() {
 
         <div>
           <div
-            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[60vh] xxl:w-[700px]  transform rotate-90 origin-bottom-left top-0  left-5 z-10"
+            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[70vh] xxl:w-[700px]  transform rotate-90 origin-bottom-left top-0  left-5 z-10"
             dangerouslySetInnerHTML={{
               __html: content.homeCollection.items[0].heading,
             }}

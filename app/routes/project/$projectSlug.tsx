@@ -83,7 +83,7 @@ export default function Index() {
                               __html: documentToHtmlString(item.text.json),
                             }}
                           ></div>
-                          {item.link != "" && (
+                          {item.link && item.link != "" && (
                             <a
                               href={item.link}
                               target="_blank"
@@ -283,7 +283,7 @@ export default function Index() {
                         __html: documentToHtmlString(item.text.json),
                       }}
                     ></h4>
-                    {item.linnk != "" && (
+                    {item.linnk && item.linnk != "" && (
                       <a
                         href={item.linnk}
                         target="_blank"
