@@ -63,40 +63,6 @@ export default function Index() {
                 </div>
               );
             })}
-
-            {/* <div className="w-8/12 mr-4 ml-auto mb-20 lg:w-4/12 px-2 lg:mx-auto lg:pt-40 lg:-mb-40">
-              <Link to={"/project"}>
-                <Img src="/assets/projects-2.png" className="w-full" />
-                <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
-                  Koa House Furano
-                </h2>
-                <p className="text-delta-400 text-xs uppercase tracking-2em">
-                  japan - Furano
-                </p>
-              </Link>
-            </div>
-            <div className="w-8/12 ml-4 mr-auto mb-20 lg:w-4/12 px-2 lg:mx-auto ">
-              <Link to={"/project"}>
-                <Img src="/assets/projects-3.png" className="w-full" />
-                <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
-                  Koa House Furano
-                </h2>
-                <p className="text-delta-400 text-xs uppercase tracking-2em">
-                  japan - Furano
-                </p>
-              </Link>
-            </div>
-            <div className="w-full mb-20 lg:w-6/12 lg:px-2 lg:pt-96 lg:pb-40">
-              <Link to={"/project"}>
-                <Img src="/assets/projects-4.png" className="w-full" />
-                <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
-                  Koa House Furano
-                </h2>
-                <p className="text-delta-400 text-xs uppercase tracking-2em">
-                  japan - Furano
-                </p>
-              </Link>
-            </div> */}
           </div>
         </div>
       </div>

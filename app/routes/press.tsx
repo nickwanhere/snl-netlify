@@ -49,7 +49,7 @@ export default function Index() {
                         (left ? "" : "lg:order-2 lg:ml-auto")
                       }
                     >
-                      <img src="/assets/press.png" className="w-full" />
+                      <img src={item.image.url} className="w-full" />
                     </div>
                     <div
                       className={
@@ -68,7 +68,7 @@ export default function Index() {
                           }}
                         ></div>
                         <a
-                          href={item.linnk}
+                          href={item.link}
                           target="_blank"
                           className="uppercase text-xs font-medium tracking-[.2em]"
                         >

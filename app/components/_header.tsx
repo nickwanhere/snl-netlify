@@ -70,7 +70,7 @@ const Lang = ({ theme }) => {
               <span>EN</span>
             </a>
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             <a
               className={
                 "my-1 menu-item relative inline-block leading-normal pb-1 " +
@@ -79,7 +79,7 @@ const Lang = ({ theme }) => {
             >
               <span>日本語</span>
             </a>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu.Items>
       </Transition>
     </Menu>
@@ -113,17 +113,25 @@ const SocialMenu = ({ theme }) => {
       >
         <Menu.Items className="absolute right-0 left-0 mx-auto w-auto mt-2 origin-top flex flex-col items-center whitespace-nowrap text-13px">
           <Menu.Item>
-            <a className={"my-1 " + theme}>
+            <a
+              href="https://www.facebook.com/supernovaland/"
+              target="_blank"
+              className={"my-1 " + theme}
+            >
               <SocialIcon.FB className="w-5 h-5" />
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a className={"my-1 " + theme}>
+            <a target="_blank" className={"my-1 " + theme}>
               <SocialIcon.Spotify className="w-5 h-5" />
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a className={"my-1 " + theme}>
+            <a
+              href="https://www.instagram.com/supernova__land"
+              target="_blank"
+              className={"my-1 " + theme}
+            >
               <SocialIcon.Instagram className="w-4 h-4" />
             </a>
           </Menu.Item>
@@ -303,21 +311,27 @@ export default function Header({ theme, hover }) {
                 >
                   <span>EN</span>
                 </a>
-                <a
+                {/* <a
                   href=""
                   className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
                 >
                   <span>日本語</span>
-                </a>
+                </a> */}
               </div>
               <div className="flex items-center  justify-center my-5">
-                <a href="" className="mx-3 text-cararra hover:text-white">
+                <a
+                  href="https://www.facebook.com/supernovaland/"
+                  className="mx-3 text-cararra hover:text-white"
+                >
                   <SocialIcon.FB className="w-6 h-6" />
                 </a>
                 <a href="" className="mx-3 text-cararra hover:text-white">
                   <SocialIcon.Spotify className="w-6 h-6" />
                 </a>
-                <a href="" className="mx-3 text-cararra hover:text-white">
+                <a
+                  href="https://www.instagram.com/supernova__land"
+                  className="mx-3 text-cararra hover:text-white"
+                >
                   <SocialIcon.Instagram className="w-5 h-5" />
                 </a>
               </div>
