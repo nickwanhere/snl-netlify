@@ -54,7 +54,7 @@ export async function getAbout() {
       title
       image
       {
-        url
+          url(transform:{width:645})
       }
       leftText
       {
@@ -104,7 +104,7 @@ export async function getTeam() {
       {
 				items
         {
-          url
+          url(transform:{width:645})
           description
         }
       }
