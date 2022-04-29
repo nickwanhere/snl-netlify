@@ -58,7 +58,7 @@ export default function Index() {
           ></div>
         </div>
         <div className="half-bg half-bg-team">
-          <div className="w-full lg:w-8/12 mx-auto text-base font-timesnow text-chicago px-4 relative z-[1] pb-[50px] lg:pb-[100px]">
+          <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago px-4 relative z-[1] pb-[50px] lg:pb-[100px]">
             <div className="mx-auto block ">
               <CusSlider slides={teamPage.galleryCollection.items} />
             </div>
