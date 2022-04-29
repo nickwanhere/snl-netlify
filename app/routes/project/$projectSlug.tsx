@@ -83,27 +83,29 @@ export default function Index() {
                               __html: documentToHtmlString(item.text.json),
                             }}
                           ></div>
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            className="uppercase text-xs font-medium font-beviet tracking-[.2em] mt-5 inline-block text-chicago inline-flex items-center border-b pb-1 border-transparent hover:border-chicago transition"
-                          >
-                            VISIT SITE{" "}
-                            <svg
-                              width="13"
-                              height="13"
-                              viewBox="0 0 13 13"
-                              className="stroke-current inline-block ml-1"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                          {item.link != "" && (
+                            <a
+                              href={item.link}
+                              target="_blank"
+                              className="uppercase text-xs font-medium font-beviet tracking-[.2em] mt-5 inline-block text-chicago inline-flex items-center border-b pb-1 border-transparent hover:border-chicago transition"
                             >
-                              <path
-                                d="M2.82843 11.8284L11.3136 3.34308L5.6244 3.3756"
-                                stroke="#616153"
-                              />
-                              <path d="M12 6.5V12H6" stroke="#616153" />
-                            </svg>
-                          </a>
+                              VISIT SITE{" "}
+                              <svg
+                                width="13"
+                                height="13"
+                                viewBox="0 0 13 13"
+                                className="stroke-current inline-block ml-1"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2.82843 11.8284L11.3136 3.34308L5.6244 3.3756"
+                                  stroke="#616153"
+                                />
+                                <path d="M12 6.5V12H6" stroke="#616153" />
+                              </svg>
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -281,13 +283,15 @@ export default function Index() {
                         __html: documentToHtmlString(item.text.json),
                       }}
                     ></h4>
-                    <a
-                      href={item.linnk}
-                      target="_blank"
-                      className="transition  uppercase border py-4 text-xs px-10 inline-block mt-5 text-white mx-auto border-white  hover:bg-white hover:text-chicago text-medium tracking-[.2em]"
-                    >
-                      Visit site
-                    </a>
+                    {item.linnk != "" && (
+                      <a
+                        href={item.linnk}
+                        target="_blank"
+                        className="transition  uppercase border py-4 text-xs px-10 inline-block mt-5 text-white mx-auto border-white  hover:bg-white hover:text-chicago text-medium tracking-[.2em]"
+                      >
+                        Visit site
+                      </a>
+                    )}
                   </div>
                 </div>
               )}

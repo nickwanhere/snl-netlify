@@ -102,7 +102,7 @@ export default function Index() {
                     <div className="text-center">
                       <Link to={"/project/" + item.slug}>
                         <Img
-                          className="no-drag max-h-[60vh] w-full"
+                          className="no-drag max-h-[70vh] w-full"
                           src={item.thumbnail.url}
                         />
                         <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">

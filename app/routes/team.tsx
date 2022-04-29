@@ -7,6 +7,8 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getTeam } from "../components/api.js";
 
+import { useState } from "react";
+
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 export const loader: LoaderFunction = async () => {
@@ -14,6 +16,51 @@ export const loader: LoaderFunction = async () => {
   const response = await getTeam();
 
   return json(response.data);
+};
+
+const TeamCard = ({ item }: { item: any }) => {
+  const [opened, setOpened] = useState(false);
+  return (
+    <div className=" w-full lg:w-6/12 pb-10 mb-10  lg:pb-0 lg:mb-20 border-b lg:px-10  lg:border-b-0 lg:even:border-l border-[#DBDBCF]">
+      <h3 className="text-3xl text-chicago font-timesnow mb-3">{item.name}</h3>
+      <p className="text-[10px] uppercase text-delta-400 tracking-[.2em]">
+        {item.jobTitle}
+      </p>
+      <div
+        className={
+          "font-timesnow text-base my-4 leading-8 overflow-hidden transition-all text-ellipsis    " +
+          (opened ? "max-h-[auto]" : "max-h-[150px] readmore")
+        }
+        dangerouslySetInnerHTML={{
+          __html: documentToHtmlString(item.bio?.json),
+        }}
+      ></div>
+      <button
+        className="uppercase text-xs font-medium tracking-[.2em] flex items-center"
+        onClick={() => {
+          setOpened(!opened);
+        }}
+      >
+        Read more
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class={
+            "h-4 w-4 transform transition-all " + (opened ? "rotate-180" : "")
+          }
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19 9l-7 7-7-7"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  );
 };
 
 export default function Index() {
@@ -77,38 +124,7 @@ export default function Index() {
           </h2>
           <div className="flex flex-wrap text-chicago lg:-mx-10">
             {teamPage.teamMembersCollection.items.map((_item, index) => {
-              return (
-                <div
-                  className=" w-full lg:w-6/12 pb-10 mb-10  lg:pb-0 lg:mb-20 border-b lg:px-10  lg:border-b-0 lg:even:border-l border-[#DBDBCF]"
-                  key={index}
-                >
-                  <h3 className="text-3xl text-chicago font-timesnow mb-3">
-                    {_item.name}
-                  </h3>
-                  <p className="text-[10px] uppercase text-delta-400 tracking-[.2em]">
-                    {_item.jobTitle}
-                  </p>
-                  <div
-                    className="font-timesnow text-base my-4 leading-8"
-                    dangerouslySetInnerHTML={{
-                      __html: documentToHtmlString(_item.bio?.json),
-                    }}
-                  ></div>
-                  <a className="uppercase text-xs font-medium tracking-[.2em]">
-                    Read more
-                    <svg
-                      width="17"
-                      height="5"
-                      viewBox="0 0 17 5"
-                      className="stroke-current inline-block ml-1"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M0 4.5L15 4.5L11 0.5" />
-                    </svg>
-                  </a>
-                </div>
-              );
+              return <TeamCard item={_item} key={index} />;
             })}
           </div>
         </div>

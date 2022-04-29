@@ -1071,7 +1071,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[90vh\]{height:90vh}
 
-.max-h-\[60vh\]{max-height:60vh}
+.max-h-\[70vh\]{max-height:70vh}
+
+.max-h-\[auto\]{max-height:auto}
+
+.max-h-\[150px\]{max-height:150px}
 
 .w-auto{width:auto}
 
@@ -1109,6 +1113,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
 
+.rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
+
 .scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
 
 .scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
@@ -1138,6 +1144,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .space-x-10 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(2.5rem * var(--tw-space-x-reverse));margin-left:calc(2.5rem * calc(1 - var(--tw-space-x-reverse)))}
 
 .overflow-hidden{overflow:hidden}
+
+.text-ellipsis{text-overflow:ellipsis}
 
 .whitespace-nowrap{white-space:nowrap}
 
@@ -1294,6 +1302,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .opacity-100{opacity:1}
 
 .transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}
+
+.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}
 
 .duration-100{transition-duration:100ms}
 
@@ -1751,8 +1761,6 @@ figure.aniimg:hover .img {
 .lg\:w-7\/12{width:58.333333%}
 
 .lg\:w-5\/12{width:41.666667%}
-
-.lg\:w-8\/12{width:66.666667%}
 
 .lg\:w-9\/12{width:75%}
 
