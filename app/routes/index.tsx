@@ -41,7 +41,7 @@ const HpSlider = ({ mobile, children, setCurrentIndex }) => {
       {!mobile && (
         <Flickity
           flickityRef={(c) => setupFlicty(c)}
-          className={"carousel mt-[10vh] "} // default ''
+          className={"carousel max-h-[800px] w-full "} // default ''
           elementType={"div"} // default 'div'
           options={flickityOptions} // takes flickity options {}
           disableImagesLoaded={false} // default false
@@ -92,41 +92,43 @@ export default function Index() {
 
   return (
     <Layout hover={true} theme={"text-black"} footer={false}>
-      <div className="lg:h-[100vh]  relative overflow-hidden ">
-        <div className="pt-96 lg:pt-0 hp-slider w-10/12 ml-auto overflow-hidden">
-          <HpSlider mobile={mobile} setCurrentIndex={setCurrentIndex}>
-            {content.projectCollection.items.map((item, index) => {
-              return (
-                <div className="slide lg:px-24" key={index}>
-                  <div className=" flex justify-center lg:h-screen py-10 lg:py-24    ">
-                    <div className="text-center">
-                      <Link to={"/project/" + item.slug}>
-                        <Img
-                          className="no-drag max-h-[60vh] w-full"
-                          src={item.thumbnail.url}
-                        />
-                        <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
-                          {item.title}
-                        </h2>
-                        <p className="text-delta-400 text-xs uppercase tracking-2em">
-                          {item.subTitle}
-                        </p>
-                      </Link>
+      <div className="lg:h-[100vh]  relative overflow-hidden flex items-center pt-20 xxl:pt-0">
+        <div className="pt-96 lg:pt-0 hp-slider w-full pl-[200px] overflow-hidden relative ">
+          <div className="overflow-hidden">
+            <HpSlider mobile={mobile} setCurrentIndex={setCurrentIndex}>
+              {content.projectCollection.items.map((item, index) => {
+                return (
+                  <div className="slide lg:px-24" key={index}>
+                    <div className=" flex justify-center lg:h-screen py-10 lg:py-24    ">
+                      <div className="text-center">
+                        <Link to={"/project/" + item.slug}>
+                          <Img
+                            className="no-drag max-h-[60vh] w-full"
+                            src={item.thumbnail.url}
+                          />
+                          <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
+                            {item.title}
+                          </h2>
+                          <p className="text-delta-400 text-xs uppercase tracking-2em">
+                            {item.subTitle}
+                          </p>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </HpSlider>
-        </div>
-
-        <div>
+                );
+              })}
+            </HpSlider>
+          </div>
           <div
-            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[70vh] xxl:w-[700px]  transform rotate-90 origin-bottom-left top-0  left-5 z-10"
+            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-5 z-10"
             dangerouslySetInnerHTML={{
               __html: content.homeCollection.items[0].heading,
             }}
           ></div>
+        </div>
+
+        <div>
           <div></div>
           <div className="absolute bottom-10 right-10  justify-end -mx-1 mt-2 hidden lg:flex">
             {content.projectCollection.items.map((item, index) => {

@@ -959,6 +959,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .right-10{right:2.5rem}
 
+.-top-10{top:-2.5rem}
+
+.-top-\[10px\]{top:-10px}
+
+.-top-\[20px\]{top:-20px}
+
+.-top-\[50px\]{top:-50px}
+
+.-top-\[60px\]{top:-60px}
+
 .z-20{z-index:20}
 
 .z-\[1\]{z-index:1}
@@ -1071,11 +1081,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[90vh\]{height:90vh}
 
-.max-h-\[70vh\]{max-height:70vh}
+.max-h-\[60vh\]{max-height:60vh}
 
 .max-h-\[auto\]{max-height:auto}
 
 .max-h-\[150px\]{max-height:150px}
+
+.max-h-\[800px\]{max-height:800px}
 
 .w-auto{width:auto}
 
@@ -1224,6 +1236,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-14{padding-bottom:3.5rem}
 
 .pb-10{padding-bottom:2.5rem}
+
+.pt-20{padding-top:5rem}
+
+.pl-\[100px\]{padding-left:100px}
+
+.pl-\[200px\]{padding-left:200px}
 
 .text-left{text-align:left}
 
@@ -1756,7 +1774,7 @@ figure.aniimg:hover .img {
 
 .lg\:w-10\/12{width:83.333333%}
 
-.lg\:w-\[60vh\]{width:60vh}
+.lg\:w-\[70vh\]{width:70vh}
 
 .lg\:w-7\/12{width:58.333333%}
 
@@ -1765,6 +1783,8 @@ figure.aniimg:hover .img {
 .lg\:w-9\/12{width:75%}
 
 .lg\:w-auto{width:auto}
+
+.lg\:w-\[65vh\]{width:65vh}
 
 .lg\:max-w-\[266px\]{max-width:266px}
 
@@ -1855,6 +1875,10 @@ figure.aniimg:hover .img {
 @media (min-width: 1980px){
 
 .xxl\:w-\[700px\]{width:700px}
+
+.xxl\:w-\[600px\]{width:600px}
+
+.xxl\:pt-0{padding-top:0px}
 
 .xxl\:text-\[64px\]{font-size:64px}}
 
