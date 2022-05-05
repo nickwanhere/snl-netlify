@@ -50,7 +50,7 @@ export default function Index() {
           style={{ backgroundImage: "url(" + project.heroBanner.url + ")" }}
         >
           <div>
-            <h1 className="block text-center leading-zero text-white text-[40px] lg:text-[64px] font-timesnow text-light ">
+            <h1 className="block text-center leading-zero text-white text-[40px] lg:text-[48px] font-timesnow text-light ">
               {project.title}
             </h1>
             <p className="uppercase text-xs lg:text-base tracking-[.2em] text-center">
@@ -298,6 +298,54 @@ export default function Index() {
             </>
           );
         })}
+        <div className="container mx-auto my-6 px-4 ">
+          <div className="w-full lg:w-10/12  mx-auto flex justify-center  ">
+            <div className="w-6/12 border-r border-chicago">
+              <a className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mr-[30px]"
+                >
+                  <circle
+                    opacity="0.5"
+                    r="19.5"
+                    transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 20 20)"
+                    stroke="#616153"
+                  />
+                  <path opacity="0.5" d="M28 22L13 22L17 18" stroke="#616153" />
+                </svg>
+                Koa House Furano
+              </a>
+            </div>
+            <div className="w-6/12 text-right">
+              <a className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow">
+                Koa House Furano
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  className="ml-[30px]"
+                >
+                  <circle
+                    opacity="0.5"
+                    cx="20"
+                    cy="20"
+                    r="19.5"
+                    transform="rotate(-90 20 20)"
+                    stroke="#616153"
+                    className="ml-2"
+                  />
+                  <path opacity="0.5" d="M12 22L27 22L23 18" stroke="#616153" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   );

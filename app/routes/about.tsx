@@ -28,7 +28,7 @@ export default function Index() {
   return (
     <Layout hover={false} theme={"text-black"} footer={true}>
       <div className=" text-center">
-        <h1 className="block lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[64px] font-timesnow text-light ">
+        <h1 className="block lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[48px] font-timesnow text-light ">
           {aboutPage.title}
         </h1>
         <div className="px-4 half-bg">

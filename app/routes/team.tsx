@@ -93,7 +93,7 @@ export default function Index() {
   return (
     <Layout hover={false} theme={"text-black"} footer={true}>
       <div className=" text-center ">
-        <h1 className="block  leading-zero text-chicago text-[40px] lg:text-[64px] font-timesnow text-light ">
+        <h1 className="block  leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
           {teamPage.title}
         </h1>
         <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago px-4">
