@@ -181,6 +181,10 @@ projectCollection(where:{
 },limit:1){
   items
   {
+      sys
+      {
+        publishedAt
+      }
     title
     heroBanner
     {
@@ -263,5 +267,46 @@ projectCollection(where:{
 }
 }`
   );
+  return entries;
+}
+
+export async function getPrevNext(createdAt) {
+  const entries = await fetchGraphQL(
+    `query {
+ prev:projectCollection(order:sys_publishedAt_DESC,limit:1,where:{sys:{publishedAt_lt:"${createdAt}"}}){
+    items
+    {
+     	title
+      slug
+    }
+  }
+ next:projectCollection(order:sys_publishedAt_ASC,limit:1,where:{sys:{publishedAt_gt:"${createdAt}"}}){
+    items
+    {
+     	title
+      slug
+    }
+  }
+
+first:projectCollection(order:sys_publishedAt_ASC,limit:1){
+    items
+    {
+     	title
+      slug
+    }
+  }
+
+last:projectCollection(order:sys_publishedAt_DESC,limit:1){
+    items
+    {
+     	title
+      slug
+    }
+  }
+}
+
+`
+  );
+
   return entries;
 }

@@ -8,7 +8,7 @@ import invariant from "tiny-invariant";
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getProject } from "../../components/api.js";
+import { getProject, getPrevNext } from "../../components/api.js";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
@@ -34,6 +34,12 @@ export const loader: LoaderFunction = async ({ params }) => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
   const response = await getProject(params.projectSlug);
 
+  const nav = await getPrevNext(
+    response.data.projectCollection.items[0].sys.publishedAt
+  );
+
+  response.data.nav = nav;
+
   return json(response.data);
 };
 
@@ -41,6 +47,13 @@ export default function Index() {
   const content = useLoaderData();
 
   const project = content.projectCollection.items[0];
+
+  const nav = content.nav.data;
+
+  const nextItem =
+    nav.next.items.length > 0 ? nav.next.items[0] : nav.first.items[0];
+  const prevItem =
+    nav.prev.items.length > 0 ? nav.prev.items[0] : nav.last.items[0];
 
   return (
     <Layout theme={"text-white"} footer={true} hover={true}>
@@ -301,48 +314,66 @@ export default function Index() {
         <div className="container mx-auto my-6 px-4 ">
           <div className="w-full lg:w-10/12  mx-auto flex justify-center  ">
             <div className="w-6/12 border-r border-chicago">
-              <a className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="mr-[30px]"
+              {prevItem && (
+                <a
+                  href={"/project/" + prevItem.slug}
+                  className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow"
                 >
-                  <circle
-                    opacity="0.5"
-                    r="19.5"
-                    transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 20 20)"
-                    stroke="#616153"
-                  />
-                  <path opacity="0.5" d="M28 22L13 22L17 18" stroke="#616153" />
-                </svg>
-                Koa House Furano
-              </a>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="mr-[30px]"
+                  >
+                    <circle
+                      opacity="0.5"
+                      r="19.5"
+                      transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 20 20)"
+                      stroke="#616153"
+                    />
+                    <path
+                      opacity="0.5"
+                      d="M28 22L13 22L17 18"
+                      stroke="#616153"
+                    />
+                  </svg>
+                  {prevItem.title}
+                </a>
+              )}
             </div>
             <div className="w-6/12 text-right">
-              <a className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow">
-                Koa House Furano
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  className="ml-[30px]"
+              {nextItem && (
+                <a
+                  href={"/project/" + nextItem.slug}
+                  className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow"
                 >
-                  <circle
-                    opacity="0.5"
-                    cx="20"
-                    cy="20"
-                    r="19.5"
-                    transform="rotate(-90 20 20)"
-                    stroke="#616153"
-                    className="ml-2"
-                  />
-                  <path opacity="0.5" d="M12 22L27 22L23 18" stroke="#616153" />
-                </svg>
-              </a>
+                  {nextItem.title}
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    className="ml-[30px]"
+                  >
+                    <circle
+                      opacity="0.5"
+                      cx="20"
+                      cy="20"
+                      r="19.5"
+                      transform="rotate(-90 20 20)"
+                      stroke="#616153"
+                      className="ml-2"
+                    />
+                    <path
+                      opacity="0.5"
+                      d="M12 22L27 22L23 18"
+                      stroke="#616153"
+                    />
+                  </svg>
+                </a>
+              )}
             </div>
           </div>
         </div>
