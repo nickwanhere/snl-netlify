@@ -93,7 +93,7 @@ export default function Index() {
   return (
     <Layout hover={true} theme={"text-black"} footer={false}>
       <div className="lg:h-[100vh]  relative overflow-hidden flex items-center pt-20 xxl:pt-0">
-        <div className="pt-96 lg:pt-0 hp-slider w-full pl-[200px] overflow-hidden relative ">
+        <div className="pt-96 lg:pt-0 hp-slider w-full lg:pl-[200px] overflow-hidden relative ">
           <div className="overflow-hidden">
             <HpSlider mobile={mobile} setCurrentIndex={setCurrentIndex}>
               {content.projectCollection.items.map((item, index) => {

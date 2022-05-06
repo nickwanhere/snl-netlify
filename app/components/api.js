@@ -44,9 +44,26 @@ export async function getHome() {
   return entries;
 }
 
-export async function getAbout() {
+export async function getPage(slug) {
   const entries = await fetchGraphQL(
     `query {
+  staticPageCollection(where:{slug:"${slug}"}){
+    items{
+      title
+      content{
+        json
+      }
+    }
+  }
+}`
+  );
+  return entries;
+}
+
+export async function getAbout() {
+  const entries = await fetchGraphQL(
+    `query 
+    {
      aboutCollection
   {
     items

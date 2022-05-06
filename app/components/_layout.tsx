@@ -10,10 +10,10 @@ const Footer = ({ footer }) => {
       <div className={"bg-delta-400 py-5 "}>
         <div className="containner px-3 text-cararra text-center py-8">
           <div className="mb-8">
-            <a href="" className="mx-4 text-13px text-medium">
+            <a href="/privacy" className="mx-4 text-13px text-medium">
               Privacy Policy
             </a>{" "}
-            <a href="" className="mx-4 text-13px text-medium">
+            <a href="/terms" className="mx-4 text-13px text-medium">
               Terms & Condition
             </a>
           </div>

@@ -1235,9 +1235,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-96{padding-top:24rem}
 
-.pl-\[200px\]{padding-left:200px}
-
 .pb-14{padding-bottom:3.5rem}
+
+.pb-40{padding-bottom:10rem}
 
 .pb-10{padding-bottom:2.5rem}
 
@@ -1819,6 +1819,8 @@ figure.aniimg:hover .img {
 .lg\:pb-40{padding-bottom:10rem}
 
 .lg\:pt-0{padding-top:0px}
+
+.lg\:pl-\[200px\]{padding-left:200px}
 
 .lg\:pb-20{padding-bottom:5rem}
 
