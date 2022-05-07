@@ -114,7 +114,7 @@ const SocialMenu = ({ theme }) => {
         <Menu.Items className="absolute right-0 left-0 mx-auto w-auto mt-2 origin-top flex flex-col items-center whitespace-nowrap text-13px">
           <Menu.Item>
             <a
-              href="https://www.facebook.com/supernovaland/"
+              href="https://www.facebook.com/koaniseko/"
               target="_blank"
               className={"my-1 " + theme}
             >
@@ -122,17 +122,30 @@ const SocialMenu = ({ theme }) => {
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" className={"my-1 " + theme}>
+            <a
+              href="https://open.spotify.com/user/gr1uz0qkiovsgp4yj59uy80j9"
+              target="_blank"
+              className={"my-1 " + theme}
+            >
               <SocialIcon.Spotify className="w-5 h-5" />
             </a>
           </Menu.Item>
           <Menu.Item>
             <a
-              href="https://www.instagram.com/supernova__land"
+              href="https://www.instagram.com/koaniseko/"
               target="_blank"
               className={"my-1 " + theme}
             >
               <SocialIcon.Instagram className="w-4 h-4" />
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a
+              href="https://www.youtube.com/channel/UCYtTE5fRcpUa1jHkyvgqxYw/videos"
+              target="_blank"
+              className={"my-1 " + theme}
+            >
+              <SocialIcon.Youtube className="w-4 h-4" />
             </a>
           </Menu.Item>
         </Menu.Items>

@@ -18,14 +18,33 @@ const Footer = ({ footer }) => {
             </a>
           </div>
           <div className="my-8 flex justify-center items-center">
-            <a className="mx-3 text-cararra">
-              <SocialIcon.FB className="w-6 h-6" />
+            <a
+              href="https://www.facebook.com/koaniseko/"
+              target="_blank"
+              className="mx-3 text-cararra"
+            >
+              <SocialIcon.FB className="w-4 h-4" />
             </a>
-            <a className="mx-3 text-cararra">
-              <SocialIcon.Spotify className="w-6 h-6" />
+            <a
+              href="https://open.spotify.com/user/gr1uz0qkiovsgp4yj59uy80j9"
+              target="_blank"
+              className="mx-3 text-cararra"
+            >
+              <SocialIcon.Spotify className="w-4 h-4" />
             </a>
-            <a className="mx-3 text-cararra">
-              <SocialIcon.Instagram className="w-5 h-5" />
+            <a
+              href="https://www.instagram.com/koaniseko/"
+              target="_blank"
+              className="mx-3 text-cararra"
+            >
+              <SocialIcon.Instagram className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCYtTE5fRcpUa1jHkyvgqxYw/videos"
+              target="_blank"
+              className="mx-3 text-cararra"
+            >
+              <SocialIcon.Youtube className="w-4 h-4" />
             </a>
           </div>
           <div className="text-sm">

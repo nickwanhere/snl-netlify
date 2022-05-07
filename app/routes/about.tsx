@@ -39,12 +39,12 @@ export default function Index() {
           />
         </div>
       </div>
-      <div
-        className="bg-mercury2 pb-[50px] lg:pb-[100px] "
-        data-aos="moveup"
-        data-aos-duration={1000}
-      >
-        <div className="container mx-auto max-w-6xl pt-10 lg:pt-20 px-4">
+      <div className="bg-mercury2 pb-[50px] lg:pb-[100px] ">
+        <div
+          className="container mx-auto max-w-6xl pt-10 lg:pt-20 px-4"
+          data-aos="moveup"
+          data-aos-duration={1000}
+        >
           <div className="flex   flex-wrap -mx-4">
             <div className="w-full px-4 ">
               <h3 className="text-medium text-[10px] lg:text-xs text-delta-400 mb-5 uppercase tracking-[.2em]">
