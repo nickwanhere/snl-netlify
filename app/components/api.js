@@ -25,6 +25,9 @@ export async function getHome() {
         {
           title
           heading
+          footer{
+            json
+          }
         }
       }
   projectCollection(order:[ordering_ASC])

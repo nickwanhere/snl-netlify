@@ -10,6 +10,8 @@ import { useLoaderData } from "@remix-run/react";
 import { getHome } from "../components/api.js";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
 export const meta: MetaFunction = () => ({
   title: "Homepage - SNL",
 });
@@ -93,7 +95,7 @@ export default function Index() {
   return (
     <Layout hover={true} theme={"text-black"} footer={false}>
       <div className="lg:h-[100vh]  relative overflow-hidden flex items-center pt-20 xxl:pt-0">
-        <div className="pt-96 lg:pt-0 hp-slider w-full lg:pl-[200px] overflow-hidden relative ">
+        <div className="pt-[30rem] lg:pt-0 hp-slider w-full lg:pl-[200px] overflow-hidden relative ">
           <div className="overflow-hidden">
             <HpSlider mobile={mobile} setCurrentIndex={setCurrentIndex}>
               {content.projectCollection.items.map((item, index) => {
@@ -167,11 +169,14 @@ export default function Index() {
               <path d="M0 4.5L20 4.5L16 0.5" stroke="#616153" />
             </svg>
           </div>
-          <div className="absolute left-0 right-0 mx-auto text-lg bottom-5 lg:w-6/12 leading-[1.4em] font-timesnow text-center text-chicago">
-            A multi-disciplinary design and real estate development company
-            based in Hong Kong, specializing in thoughtfully-crafted spaces and
-            one-of-a-kind objects.
-          </div>
+          <div
+            className="xs:top-[29rem] absolute left-0 right-0 mx-auto text-lg lg:bottom-5 px-10 lg:w-6/12 leading-[1.4em] font-timesnow text-center text-chicago"
+            dangerouslySetInnerHTML={{
+              __html: documentToHtmlString(
+                content.homeCollection.items[0].footer.json
+              ),
+            }}
+          ></div>
         </div>
       </div>
     </Layout>
