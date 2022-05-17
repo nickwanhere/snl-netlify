@@ -961,6 +961,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .right-10{right:2.5rem}
 
+.bottom-0{bottom:0px}
+
+.bottom-5{bottom:1.25rem}
+
 .z-20{z-index:20}
 
 .z-\[1\]{z-index:1}
@@ -1084,6 +1088,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-h-\[auto\]{max-height:auto}
 
 .max-h-\[150px\]{max-height:150px}
+
+.max-h-\[200px\]{max-height:200px}
+
+.max-h-\[250px\]{max-height:250px}
+
+.max-h-\[220px\]{max-height:220px}
 
 .w-auto{width:auto}
 
@@ -1296,6 +1306,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .leading-tight{line-height:1.25}
 
 .leading-8{line-height:2rem}
+
+.leading-\[1\.2em\]{line-height:1.2em}
+
+.leading-\[1\.4em\]{line-height:1.4em}
 
 .tracking-\[\.2em\]{letter-spacing:.2em}
 

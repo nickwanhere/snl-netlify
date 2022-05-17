@@ -18,7 +18,7 @@ export const loader: LoaderFunction = async () => {
   return json(response.data);
 };
 
-const TeamCard = ({ item }: { item: any }) => {
+const TeamCard = ({ item, showmore }: { item: any; showmore: any }) => {
   const [opened, setOpened] = useState(false);
   return (
     <div className=" w-full lg:w-6/12 pb-10 mb-10  lg:pb-0 lg:mb-20 border-b lg:px-10  lg:border-b-0 lg:even:border-l border-[#DBDBCF]">
@@ -29,36 +29,38 @@ const TeamCard = ({ item }: { item: any }) => {
       <div
         className={
           "font-timesnow text-base my-4 leading-8 overflow-hidden transition-all text-ellipsis    " +
-          (opened ? "max-h-[auto]" : "max-h-[150px] readmore")
+          (opened ? "max-h-[auto]" : "max-h-[220px] readmore")
         }
         dangerouslySetInnerHTML={{
           __html: documentToHtmlString(item.bio?.json),
         }}
       ></div>
-      <button
-        className="uppercase text-xs font-medium tracking-[.2em] flex items-center"
-        onClick={() => {
-          setOpened(!opened);
-        }}
-      >
-        Read more
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class={
-            "h-4 w-4 transform transition-all " + (opened ? "rotate-180" : "")
-          }
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
+      {showmore && (
+        <button
+          className="uppercase text-xs font-medium tracking-[.2em] flex items-center"
+          onClick={() => {
+            setOpened(!opened);
+          }}
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19 9l-7 7-7-7"
-          ></path>
-        </svg>
-      </button>
+          Read more
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={
+              "h-4 w-4 transform transition-all " + (opened ? "rotate-180" : "")
+            }
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </button>
+      )}
     </div>
   );
 };
@@ -124,7 +126,9 @@ export default function Index() {
           </h2>
           <div className="flex flex-wrap text-chicago lg:-mx-10">
             {teamPage.teamMembersCollection.items.map((_item, index) => {
-              return <TeamCard item={_item} key={index} />;
+              return (
+                <TeamCard item={_item} key={index} showmore={index == 0} />
+              );
             })}
           </div>
         </div>

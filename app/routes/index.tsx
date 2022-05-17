@@ -167,6 +167,11 @@ export default function Index() {
               <path d="M0 4.5L20 4.5L16 0.5" stroke="#616153" />
             </svg>
           </div>
+          <div className="absolute left-0 right-0 mx-auto text-lg bottom-5 lg:w-6/12 leading-[1.4em] font-timesnow text-center text-chicago">
+            A multi-disciplinary design and real estate development company
+            based in Hong Kong, specializing in thoughtfully-crafted spaces and
+            one-of-a-kind objects.
+          </div>
         </div>
       </div>
     </Layout>
