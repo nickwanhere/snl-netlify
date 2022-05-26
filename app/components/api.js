@@ -30,7 +30,7 @@ export async function getHome() {
           }
         }
       }
-  projectCollection(order:[ordering_ASC])
+  projectCollection(order:[sys_publishedAt_ASC])
   {
     items{
       thumbnail
@@ -124,7 +124,9 @@ export async function getTeam() {
       {
 				items
         {
-          url(transform:{width:645})
+          url(transform:{width:645,height:670,
+      resizeFocus: BOTTOM,
+      resizeStrategy: CROP})
           description
         }
       }
@@ -175,7 +177,7 @@ export async function getPress() {
 export async function getProjects() {
   const entries = await fetchGraphQL(
     `query {
-  projectCollection(order:[ordering_ASC])
+  projectCollection(order:[sys_publishedAt_ASC])
   {
     items{
       thumbnail
@@ -211,7 +213,7 @@ projectCollection(where:{
       url
     }
     subTitle
-    blocksCollection
+    blocksCollection(preview:false)
     {
 				items
       {

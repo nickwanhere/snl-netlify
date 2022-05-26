@@ -77,7 +77,7 @@ export default function Index() {
 
           return (
             <>
-              {item.__typename == "ImageLeftTextRight" && (
+              {item && item.__typename == "ImageLeftTextRight" && (
                 <div
                   className="container mx-auto  px-4 lg:px-0 my-24"
                   data-aos="moveup"
@@ -126,7 +126,7 @@ export default function Index() {
                 </div>
               )}
 
-              {item.__typename == "MagazineRow" && (
+              {item && item.__typename == "MagazineRow" && (
                 <div
                   className="container mx-auto  px-4 lg:px-0 my-24"
                   data-aos="moveup"
@@ -250,7 +250,7 @@ export default function Index() {
                 </div>
               )}
 
-              {item.__typename == "ImagesRow" && (
+              {item && item.__typename == "ImagesRow" && (
                 <div
                   className="container mx-auto px-4 lg:px-0 my-24"
                   data-aos="moveup"
@@ -270,7 +270,7 @@ export default function Index() {
                 </div>
               )}
 
-              {item.__typename == "Gallery" && (
+              {item && item.__typename == "Gallery" && (
                 <div
                   className="container mx-auto my-24 "
                   data-aos="moveup"
@@ -282,7 +282,7 @@ export default function Index() {
                 </div>
               )}
 
-              {item.__typename == "ExternalBlock" && (
+              {item && item.__typename == "ExternalBlock" && (
                 <div
                   className="bg-cover bg-center bg-no-repeat mt-24 py-24 lg:py-0 lg:min-h-[30em] flex items-center justify-center"
                   style={{ backgroundImage: "url(" + item.image.url + ")" }}
@@ -293,7 +293,7 @@ export default function Index() {
                     <h4
                       className="font-timesnow text-[32px] lg:text-5xl text-white leading-tight"
                       dangerouslySetInnerHTML={{
-                        __html: documentToHtmlString(item.text.json),
+                        __html: documentToHtmlString(item.text?.json),
                       }}
                     ></h4>
                     {item.linnk && item.linnk != "" && (
@@ -303,6 +303,14 @@ export default function Index() {
                         className="transition  uppercase border py-4 text-xs px-10 inline-block mt-5 text-white mx-auto border-white  hover:bg-white hover:text-chicago text-medium tracking-[.2em]"
                       >
                         Visit site
+                      </a>
+                    )}
+                    {(!item.linnk || item.linnk == "") && (
+                      <a
+                        target="_blank"
+                        className="transition  uppercase border py-4 text-xs px-10 inline-block mt-5 text-white mx-auto border-white  hover:bg-white hover:text-chicago text-medium tracking-[.2em]"
+                      >
+                        Coming Soon
                       </a>
                     )}
                   </div>

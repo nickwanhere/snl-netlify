@@ -349,3 +349,11 @@ figure.aniimg {
     top: 40%;
   }
 }
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.contact .grecaptcha-badge {
+  display: block !important;
+}

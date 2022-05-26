@@ -955,7 +955,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .-top-\[60px\]{top:-60px}
 
-.left-5{left:1.25rem}
+.left-14{left:3.5rem}
 
 .bottom-10{bottom:2.5rem}
 
@@ -1048,6 +1048,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-auto{margin-right:auto}
 
 .mb-3{margin-bottom:0.75rem}
+
+.mt-14{margin-top:3.5rem}
 
 .mt-24{margin-top:6rem}
 
@@ -1240,6 +1242,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-40{padding-bottom:10rem}
 
 .pb-10{padding-bottom:2.5rem}
+
+.pb-\[30px\]{padding-bottom:30px}
 
 .text-left{text-align:left}
 
@@ -1680,6 +1684,14 @@ figure.aniimg:hover .img {
     top: 40%;
   }
 
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.contact .grecaptcha-badge {
+  display: block !important;
+}
+
 .placeholder\:text-xs::-moz-placeholder{font-size:0.75rem;line-height:1rem}
 
 .placeholder\:text-xs:-ms-input-placeholder{font-size:0.75rem;line-height:1rem}
@@ -1722,7 +1734,7 @@ figure.aniimg:hover .img {
 
 .lg\:right-auto{right:auto}
 
-.lg\:left-10{left:2.5rem}
+.lg\:left-20{left:5rem}
 
 .lg\:bottom-10{bottom:2.5rem}
 
@@ -1839,6 +1851,8 @@ figure.aniimg:hover .img {
 .lg\:pb-10{padding-bottom:2.5rem}
 
 .lg\:pb-0{padding-bottom:0px}
+
+.lg\:pb-\[50px\]{padding-bottom:50px}
 
 .lg\:pt-24{padding-top:6rem}
 

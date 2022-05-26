@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react";
 
 import styles from "./styles/app.css";
+import { useState, useEffect } from "react";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
@@ -38,7 +39,13 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function App() {
+  const [bClass, setBClass] = useState("");
   const env = useLoaderData();
+
+  useEffect(() => {
+    setBClass(window.location.href.split("/").pop());
+  });
+
   return (
     <GoogleReCaptchaProvider reCaptchaKey={env.RECAPTCHA_PUBLIC}>
       <html lang="en">
@@ -63,7 +70,7 @@ export default function App() {
             href="/favicon-16x16.png"
           />
         </head>
-        <body>
+        <body className={bClass}>
           <Outlet />
           <ScrollRestoration />
           <Scripts />

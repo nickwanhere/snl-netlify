@@ -22,7 +22,7 @@ const HpSlider = ({ mobile, children, setCurrentIndex }) => {
     // freeScroll: true,
     // freeScrollFriction: 0.03,
     autoPlay: 5000,
-    pauseAutoPlayOnHover: true,
+    pauseAutoPlayOnHover: false,
     cellAlign: "left",
   };
 
@@ -123,7 +123,7 @@ export default function Index() {
             </HpSlider>
           </div>
           <div
-            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-5 z-10"
+            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-14 z-10"
             dangerouslySetInnerHTML={{
               __html: content.homeCollection.items[0].heading,
             }}
@@ -132,7 +132,7 @@ export default function Index() {
 
         <div>
           <div></div>
-          <div className="absolute bottom-10 right-10  justify-end -mx-1 mt-2 hidden lg:flex">
+          {/* <div className="absolute bottom-10 right-10  justify-end -mx-1 mt-2 hidden lg:flex">
             {content.projectCollection.items.map((item, index) => {
               return (
                 <svg
@@ -155,8 +155,8 @@ export default function Index() {
                 </svg>
               );
             })}
-          </div>
-          <div className="absolute italic right-10 lg:right-auto lg:left-10 xs:top-96 lg:bottom-10 text-[13px] text-chicago font-timesnow flex items-center xs:transform xs:rotate-90 xs:origin-right  ">
+          </div> */}
+          <div className="absolute italic right-10 lg:right-auto lg:left-20 xs:top-96 lg:bottom-10 text-[13px] text-chicago font-timesnow flex items-center xs:transform xs:rotate-90 xs:origin-right  ">
             Scroll to discover{" "}
             <svg
               width="22"

@@ -95,22 +95,20 @@ export default function Index() {
   return (
     <Layout hover={false} theme={"text-black"} footer={true}>
       <div className=" text-center ">
-        <h1 className="block  leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
+        <h1 className="block  leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light mb-10">
           {teamPage.title}
         </h1>
-        <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago px-4">
-          <div
-            className="mb-14 lg:mb-[100px]"
-            dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(teamPage.subText.json),
-            }}
-          ></div>
-        </div>
         <div className="half-bg half-bg-team">
-          <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago px-4 relative z-[1] pb-[50px] lg:pb-[100px]">
+          <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago px-4 relative z-[1] pb-[30px] lg:pb-[50px]">
             <div className="mx-auto block ">
               <CusSlider slides={teamPage.galleryCollection.items} />
-            </div>
+            </div>{" "}
+            <div
+              className="mt-14 lg:mb-[100px]"
+              dangerouslySetInnerHTML={{
+                __html: documentToHtmlString(teamPage.subText.json),
+              }}
+            ></div>
           </div>
         </div>
       </div>
