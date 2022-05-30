@@ -123,7 +123,7 @@ export default function Index() {
             </HpSlider>
           </div>
           <div
-            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-14 z-10"
+            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-0 lg:left-14 z-10"
             dangerouslySetInnerHTML={{
               __html: content.homeCollection.items[0].heading,
             }}
