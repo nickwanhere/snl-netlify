@@ -1,21 +1,21 @@
 import { Link } from "@remix-run/react";
-import Layout from "../components/_layout";
-import Img from "../components/_img";
+import Layout from "~/components/_layout";
+import Img from "~/components/_img";
 
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getProjects } from "../components/api.js";
+import { getProjects } from "~/components/api.js";
 
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 export const meta: MetaFunction = () => ({
-  title: "Projects - SNL",
+  title: "プロジェクト - SNL",
 });
 
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-  const response = await getProjects();
+  const response = await getProjects("jp");
 
   return json(response.data);
 };
@@ -31,10 +31,10 @@ export default function Index() {
   ];
 
   return (
-    <Layout hover={false} theme={"text-black"} footer={true} lang={"en"}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"jp"}>
       <div className=" text-center ">
         <h1 className="block mb-[40px] lg:mb-0 leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
-          Projects
+          プロジェクト
         </h1>
 
         <div className="container mx-auto overflow-hidden">
@@ -50,7 +50,7 @@ export default function Index() {
                   data-aos-duration={index * 1000}
                 >
                   <div>
-                    <Link to={"/project/" + item.slug}>
+                    <Link to={"/jp/project/" + item.slug}>
                       <Img src={item.thumbnail.url} className="w-full" />
                       <h2 className="text-chicago text-base text-medium mt-5 mb-2 uppercase tracking-2em">
                         {item.title}

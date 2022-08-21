@@ -16,10 +16,13 @@ async function fetchGraphQL(query, preview = false) {
   ).then((response) => response.json());
 }
 
-export async function getHome() {
+export async function getHome(lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
+
   const entries = await fetchGraphQL(
     `query {
-      homeCollection
+      homeCollection 
+      (locale: "${q}")
       {
         items 
         {
@@ -30,7 +33,7 @@ export async function getHome() {
           }
         }
       }
-  projectCollection(order:[sys_publishedAt_ASC])
+  projectCollection(order:[sys_publishedAt_ASC],locale: "${q}")
   {
     items{
       thumbnail
@@ -47,10 +50,11 @@ export async function getHome() {
   return entries;
 }
 
-export async function getPage(slug) {
+export async function getPage(slug, lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query {
-  staticPageCollection(where:{slug:"${slug}"}){
+  staticPageCollection(where:{slug:"${slug}"},locale: "${q}"){
     items{
       title
       content{
@@ -63,11 +67,12 @@ export async function getPage(slug) {
   return entries;
 }
 
-export async function getAbout() {
+export async function getAbout(lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query 
     {
-     aboutCollection
+     aboutCollection(locale:"${q}")
   {
     items
     {
@@ -96,10 +101,11 @@ export async function getAbout() {
   return entries;
 }
 
-export async function getTeam() {
+export async function getTeam(lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const ids = await fetchGraphQL(
     `query {
-   teamCollection { items{
+   teamCollection(locale: "${q}") { items{
     
     sys 
     {
@@ -113,7 +119,7 @@ export async function getTeam() {
 
   const entries = await fetchGraphQL(
     `query {
-   team(id:"${teamId}"){
+   team(id:"${teamId}",locale: "${q}"){
   
       title
       subText
@@ -149,10 +155,11 @@ export async function getTeam() {
   return entries;
 }
 
-export async function getPress() {
+export async function getPress(lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query {
-     pressCollection
+     pressCollection(locale: "${q}")
   {
     items
     {
@@ -174,10 +181,11 @@ export async function getPress() {
   return entries;
 }
 
-export async function getProjects() {
+export async function getProjects(lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query {
-  projectCollection(order:[sys_publishedAt_ASC])
+  projectCollection(order:[sys_publishedAt_ASC],locale: "${q}")
   {
     items{
       thumbnail
@@ -194,13 +202,14 @@ export async function getProjects() {
   return entries;
 }
 
-export async function getProject(slug) {
+export async function getProject(slug, lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query {
 projectCollection(where:{ 
 		 slug: "${slug}" 
 		
-},limit:1){
+},limit:1,locale: "${q}"){
   items
   {
       sys
@@ -292,25 +301,18 @@ projectCollection(where:{
   return entries;
 }
 
-export async function getPrevNext(createdAt) {
+export async function getPrevNext(createdAt, lang) {
+  const q = lang == "jp" ? "ja-JP" : "en-US";
   const entries = await fetchGraphQL(
     `query {
- prev:projectCollection(order:sys_publishedAt_DESC,limit:1,where:{sys:{publishedAt_lt:"${createdAt}"}}){
+ prev:projectCollection(order:sys_publishedAt_DESC,limit:1,locale: "${q}",where:{sys:{publishedAt_lt:"${createdAt}"}}){
     items
     {
      	title
       slug
     }
   }
- next:projectCollection(order:sys_publishedAt_ASC,limit:1,where:{sys:{publishedAt_gt:"${createdAt}"}}){
-    items
-    {
-     	title
-      slug
-    }
-  }
-
-first:projectCollection(order:sys_publishedAt_ASC,limit:1){
+ next:projectCollection(order:sys_publishedAt_ASC,limit:1,locale: "${q}",where:{sys:{publishedAt_gt:"${createdAt}"}}){
     items
     {
      	title
@@ -318,7 +320,15 @@ first:projectCollection(order:sys_publishedAt_ASC,limit:1){
     }
   }
 
-last:projectCollection(order:sys_publishedAt_DESC,limit:1){
+first:projectCollection(order:sys_publishedAt_ASC,limit:1,locale: "${q}"){
+    items
+    {
+     	title
+      slug
+    }
+  }
+
+last:projectCollection(order:sys_publishedAt_DESC,limit:1,locale: "${q}"){
     items
     {
      	title

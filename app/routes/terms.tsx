@@ -26,7 +26,7 @@ export default function Index() {
   const page = content.staticPageCollection.items[0];
 
   return (
-    <Layout hover={false} theme={"text-black"} footer={true}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"en"}>
       <div className=" text-center">
         <h1 className="block lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[48px] font-timesnow text-light ">
           {page.title}

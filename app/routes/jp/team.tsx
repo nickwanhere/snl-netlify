@@ -1,11 +1,11 @@
 import { Link } from "remix";
-import Layout from "../components/_layout";
+import Layout from "~/components/_layout";
 import CusSlider from "~/components/slider";
 
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getTeam } from "../components/api.js";
+import { getTeam } from "~/components/api.js";
 
 import { useState } from "react";
 
@@ -13,12 +13,12 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 export const meta: MetaFunction = () => ({
-  title: "Team - SNL",
+  title: "チーム - SNL",
 });
 
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-  const response = await getTeam();
+  const response = await getTeam("jp");
 
   return json(response.data);
 };
@@ -47,7 +47,7 @@ const TeamCard = ({ item, showmore }: { item: any; showmore: any }) => {
             setOpened(!opened);
           }}
         >
-          Read more
+          もっと見る
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={
@@ -98,7 +98,7 @@ export default function Index() {
   ];
 
   return (
-    <Layout hover={false} theme={"text-black"} footer={true} lang={"en"}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"jp"}>
       <div className=" text-center ">
         <h1 className="block  leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light mb-10">
           {teamPage.title}
@@ -125,7 +125,7 @@ export default function Index() {
       >
         <div className="lg:w-9/12 w-full mx-auto my-20 lg:my-120px text-delta-400">
           <h2 className="font-timesnow text-[32px] lg:text-5xl text-chicago text-center mb-20 ">
-            Behind the <i className="font-extralight">curtains</i>
+            私たちの<i className="font-extralight">チーム</i>
           </h2>
           <div className="flex flex-wrap text-chicago lg:-mx-10">
             {teamPage.teamMembersCollection.items.map((_item, index) => {

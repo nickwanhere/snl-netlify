@@ -1,21 +1,21 @@
 import { Link } from "remix";
-import Layout from "../components/_layout";
+import Layout from "~/components/_layout";
 
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getPress } from "../components/api.js";
+import { getPress } from "~/components/api.js";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 export const meta: MetaFunction = () => ({
-  title: "Press - SNL",
+  title: "プレス - SNL",
 });
 
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-  const response = await getPress();
+  const response = await getPress("jp");
 
   return json(response.data);
 };
@@ -25,10 +25,10 @@ export default function Index() {
 
   const press_items = content.pressCollection.items;
   return (
-    <Layout hover={false} theme={"text-black"} footer={true} lang={"en"}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"jp"}>
       <div className=" text-center pb-20 lg:pb-40">
         <h1 className="block mb-[40px] lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
-          Press
+          プレス
         </h1>
 
         <div className="container mx-auto">
@@ -72,7 +72,7 @@ export default function Index() {
                           target="_blank"
                           className="uppercase text-xs font-medium tracking-[.2em]"
                         >
-                          Read more
+                          もっと見る
                           <svg
                             width="13"
                             height="13"

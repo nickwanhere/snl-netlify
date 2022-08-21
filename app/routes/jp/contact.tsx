@@ -1,4 +1,4 @@
-import Layout from "../components/_layout";
+import Layout from "~/components/_layout";
 import { useForm } from "react-hook-form";
 
 import type { LoaderFunction } from "@remix-run/node";
@@ -14,7 +14,7 @@ import axios from "axios";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 export const meta: MetaFunction = () => ({
-  title: "Contact - SNL",
+  title: "お問い合わせ - SNL",
 });
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
@@ -45,7 +45,7 @@ const Form = ({ env }) => {
         data: payload,
       })
         .then((response) => {
-          setServerRes("Thank you, your message has been submitted.");
+          setServerRes("ありがとうございます。メッセージが送信されました。");
         })
         .catch((error) => {
           console.log(error);
@@ -76,87 +76,87 @@ const Form = ({ env }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          First Name
+          名
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="ENTER YOUR FIRST NAME"
+          placeholder="お名前を入力してください"
           {...register("first_name", { required: true })}
         />
         {errors.first_name && (
           <p className="text-sm text-red-600 text-beviet">
-            This is a required field.
+            これは必要項目です。
           </p>
         )}
       </div>
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          Last Name
+          姓
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="ENTER YOUR LAST NAME"
+          placeholder="姓を入力してください"
           {...register("last_name", { required: true })}
         />
         {errors.last_name && (
           <p className="text-sm text-red-600 text-beviet">
-            This is a required field.
+            これは必要項目です。
           </p>
         )}
       </div>
 
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          Email
+          メールアドレス
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="ENTER YOUR EMAIL"
+          placeholder="メールアドレスを入力"
           type="email"
           {...register("email", { required: true })}
         />
         {errors.email && (
           <p className="text-sm text-red-600 text-beviet">
-            This is a required field.
+            これは必要項目です。
           </p>
         )}
       </div>
 
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          Subject
+          内容
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="ENTER YOUR SUBJECT"
+          placeholder="件名を入力してください"
           type="text"
           {...register("subject", { required: true })}
         />
         {errors.email && (
           <p className="text-sm text-red-600 font-beviet">
-            This is a required field.
+            これは必要項目です。
           </p>
         )}
       </div>
 
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          Message
+          メッセージ
         </label>
         <textarea
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="ENTER YOUR MESSAGE"
+          placeholder="メッセージを入力してください"
           rows={4}
           {...register("message", { required: true })}
         ></textarea>
         {errors.message && (
           <p className="text-sm text-red-600 text-beviet">
-            This is a required field.
+            これは必要項目です。
           </p>
         )}
       </div>
@@ -164,15 +164,15 @@ const Form = ({ env }) => {
         type="submit"
         className="w-8/12 lg:w-4/12 bg-chicago text-cararra mx-auto py-5 uppercase font-beviet text-xs tracking-[.2em] block mt-10 "
       >
-        Submit
+        提出
       </button>
 
       {serverRes && (
         <p className="font-timesnow my-5 font-bold text-center">{serverRes}</p>
       )}
       <p className="italic font-timesnow text-base mt-8 lg:w-10/12 mx-auto leading-relaxed text-center text-extralight">
-        This site is protected by reCAPTCHA and the Google Privacy Policy and
-        Terms of Service apply.
+        このサイトは reCAPTCHA によって保護されており、Google のプライバシー
+        ポリシーと利用規約が適用されます。
       </p>
     </form>
   );
@@ -182,16 +182,14 @@ export default function Index() {
   const env = useLoaderData();
 
   return (
-    <Layout hover={false} theme={"text-black"} footer={true} lang={"en"}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"jp"}>
       <div className=" text-center pb-20 lg:pb-40 px-4">
         <h1 className="block mb-[40px] lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
-          Contact
+          お問い合わせ
         </h1>
         <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago mb-10 lg:mb-20">
           <p className="">
-            For more information on our developments and locations, please feel
-            free to contact us. Our team will get back to you soon and we love
-            meeting for coffee.
+            私たちの開発や拠点に関する詳細については、お気軽にお問い合わせください、すぐにお返事いたします。
           </p>
         </div>
         <div className="w-full lg:w-4/12 mx-auto text-base font-timesnow text-chicago lg:px-7">

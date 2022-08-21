@@ -1,14 +1,14 @@
 import { Link } from "remix";
-import Layout from "../../components/_layout";
-import CusSlider from "../../components/slider";
-import Img from "../../components/_img";
+import Layout from "~/components/_layout";
+import CusSlider from "~/components/slider";
+import Img from "~/components/_img";
 
 import invariant from "tiny-invariant";
 
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getProject, getPrevNext } from "../../components/api.js";
+import { getProject, getPrevNext } from "~/components/api.js";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
@@ -32,10 +32,11 @@ export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.projectSlug, "Expected params.projectSlug");
 
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-  const response = await getProject(params.projectSlug);
+  const response = await getProject(params.projectSlug, "jp");
 
   const nav = await getPrevNext(
-    response.data.projectCollection.items[0].sys.publishedAt
+    response.data.projectCollection.items[0].sys.publishedAt,
+    "jp"
   );
 
   response.data.nav = nav;
@@ -56,7 +57,7 @@ export default function Index() {
     nav.prev.items.length > 0 ? nav.prev.items[0] : nav.last.items[0];
 
   return (
-    <Layout theme={"text-white"} footer={true} hover={true} lang={"en"}>
+    <Layout theme={"text-white"} footer={true} hover={true} lang={"jp"}>
       <div className="  overflow-hidden ">
         <div
           className="text-white h-[90vh] lg:h-screen flex items-center justify-center lg:mb-10 bg-no-repeat bg-center bg-cover"
@@ -324,7 +325,7 @@ export default function Index() {
             <div className="w-6/12 border-r border-chicago">
               {prevItem && (
                 <a
-                  href={"/project/" + prevItem.slug}
+                  href={"/jp/project/" + prevItem.slug}
                   className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow"
                 >
                   <svg
@@ -354,7 +355,7 @@ export default function Index() {
             <div className="w-6/12 text-right">
               {nextItem && (
                 <a
-                  href={"/project/" + nextItem.slug}
+                  href={"/jp/project/" + nextItem.slug}
                   className="inline-flex text-chicago text-lg lg:text-[32px] items-center font-timesnow"
                 >
                   {nextItem.title}

@@ -24,6 +24,7 @@ module.exports = {
       fontFamily: {
         timesnow: ["Times Now", "serif"],
         beviet: ["Be Vietnam Pro", "sans-serif"],
+        jpfont: ["Noto Serif JP", "serif"],
       },
       letterSpacing: {
         "2em": ".2em",

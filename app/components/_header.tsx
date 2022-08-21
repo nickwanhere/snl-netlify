@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Popover, Transition, Menu } from "@headlessui/react";
 import SocialIcon from "./_social";
 import {
@@ -17,7 +17,19 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 
-const Lang = ({ theme }) => {
+const Lang = ({ theme, lang }) => {
+  const [baseurl, setBaseurl] = useState("");
+  const [jpurl, setJpurl] = useState("");
+
+  useEffect(() => {
+    const b = location.pathname.replace("/jp/", "/");
+    setBaseurl(b);
+
+    let j = b.split("/");
+    j[0] = "/jp";
+
+    setJpurl(j.join("/"));
+  }, []);
   return (
     <Menu as="div" className={"relative " + theme}>
       <Menu.Button>
@@ -62,6 +74,7 @@ const Lang = ({ theme }) => {
         <Menu.Items className="font-light absolute right-0 left-0 mx-auto w-auto mt-2 origin-top flex flex-col items-center whitespace-nowrap text-[12px]">
           <Menu.Item>
             <a
+              href={baseurl}
               className={
                 "my-1 menu-item relative inline-block leading-normal pb-1 " +
                 (theme == "text-white" ? "menu-item-white" : "")
@@ -70,8 +83,9 @@ const Lang = ({ theme }) => {
               <span>EN</span>
             </a>
           </Menu.Item>
-          {/* <Menu.Item>
+          <Menu.Item>
             <a
+              href={jpurl}
               className={
                 "my-1 menu-item relative inline-block leading-normal pb-1 " +
                 (theme == "text-white" ? "menu-item-white" : "")
@@ -79,7 +93,7 @@ const Lang = ({ theme }) => {
             >
               <span>日本語</span>
             </a>
-          </Menu.Item> */}
+          </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
@@ -189,41 +203,43 @@ const Logo = ({ theme }) => {
   );
 };
 
-const menu = [
-  {
-    name: "About",
-    href: "/about",
-    icon: ChartBarIcon,
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-    icon: CursorClickIcon,
-  },
-  {
-    name: "Team",
-    href: "/team",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Press",
-    href: "/press",
-    icon: ViewGridIcon,
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-    icon: RefreshIcon,
-  },
-];
+export default function Header({ theme, hover, lang }) {
+  const baseUrl = lang == "en" ? "/" : "/jp/";
 
-export default function Header({ theme, hover }) {
+  const menu = [
+    {
+      name: lang == "en" ? "About" : "スーパーノヴァ・ランドについて",
+      href: baseUrl + "about",
+      icon: ChartBarIcon,
+    },
+    {
+      name: lang == "en" ? "Projects" : "プロジェクト",
+      href: baseUrl + "projects",
+      icon: CursorClickIcon,
+    },
+    {
+      name: lang == "en" ? "Team" : "チーム",
+      href: baseUrl + "team",
+      icon: ShieldCheckIcon,
+    },
+    {
+      name: lang == "en" ? "Press" : "プレス",
+      href: baseUrl + "press",
+      icon: ViewGridIcon,
+    },
+    {
+      name: lang == "en" ? "Contact" : "お問い合わせ",
+      href: baseUrl + "contact",
+      icon: RefreshIcon,
+    },
+  ];
+
   return (
     <Popover className={hover ? "absolute w-full z-20 " : "relative"}>
       <div className="max-w-7xl mx-auto py-5 px-5 lg:px-3">
         <div className="flex justify-between items-center py-6 ">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link to={"/"}>
+            <Link to={baseUrl}>
               <Logo theme={theme} />
             </Link>
           </div>
@@ -262,7 +278,7 @@ export default function Header({ theme, hover }) {
               );
             })}
 
-            <Lang theme={theme} />
+            <Lang theme={theme} lang={lang} />
 
             <SocialMenu theme={theme} />
           </nav>
@@ -324,12 +340,12 @@ export default function Header({ theme, hover }) {
                 >
                   <span>EN</span>
                 </a>
-                {/* <a
+                <a
                   href=""
                   className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
                 >
                   <span>日本語</span>
-                </a> */}
+                </a>
               </div>
               <div className="flex items-center  justify-center my-5">
                 <a

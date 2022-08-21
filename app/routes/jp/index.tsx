@@ -1,13 +1,13 @@
 import { Link } from "@remix-run/react";
-import Layout from "../components/_layout";
+import Layout from "~/components/_layout";
 import { useState, useEffect } from "react";
-import Img from "../components/_img";
+import Img from "~/components/_img";
 import Flickity from "react-flickity-component";
 
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getHome } from "../components/api.js";
+import { getHome } from "~/components/api.js";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
@@ -61,7 +61,7 @@ const HpSlider = ({ mobile, children, setCurrentIndex }) => {
 
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
-  const response = await getHome();
+  const response = await getHome("jp");
 
   return json(response.data);
 };
@@ -93,7 +93,7 @@ export default function Index() {
   }, []);
 
   return (
-    <Layout hover={true} theme={"text-black"} footer={false} lang={"en"}>
+    <Layout hover={true} theme={"text-black"} footer={false} lang={"jp"}>
       <div className="lg:h-[100vh]  relative overflow-hidden flex items-center pt-20 xxl:pt-0">
         <div className="pt-[30rem] lg:pt-0 hp-slider w-full lg:pl-[200px] overflow-hidden relative ">
           <div className="overflow-hidden">
@@ -123,7 +123,7 @@ export default function Index() {
             </HpSlider>
           </div>
           <div
-            className="absolute font-timesnow text-[32px] lg:text-[54px] xxl:text-[64px] text-chicago font-light w-[300px] lg:w-[65vh]  xxl:w-[600px]  transform rotate-90 origin-bottom-left -top-[60px]  left-0 lg:left-14 z-10"
+            className="absolute font-timesnow text-[28px]  lg:text-[48px] text-chicago font-light  left-3 lg:left-20 z-10 top-10 lg:top-24 h-[300px] lg:h-[400px] hptext"
             dangerouslySetInnerHTML={{
               __html: content.homeCollection.items[0].heading,
             }}
@@ -157,7 +157,7 @@ export default function Index() {
             })}
           </div> */}
           <div className="absolute italic right-10 lg:right-auto lg:left-20 xs:top-96 lg:bottom-10 text-[13px] text-chicago font-timesnow flex items-center xs:transform xs:rotate-90 xs:origin-right  ">
-            Scroll to discover{" "}
+            スクロールして探す
             <svg
               width="22"
               height="5"
