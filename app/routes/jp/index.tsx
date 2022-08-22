@@ -103,7 +103,7 @@ export default function Index() {
                   <div className="slide lg:px-24" key={index}>
                     <div className=" flex justify-center lg:h-screen py-10 lg:py-24    ">
                       <div className="text-center">
-                        <Link to={"/project/" + item.slug}>
+                        <Link to={"/jp/project/" + item.slug}>
                           <Img
                             className="no-drag max-h-[60vh] w-full"
                             src={item.thumbnail.url}
