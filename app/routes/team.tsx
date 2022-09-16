@@ -34,7 +34,7 @@ const TeamCard = ({ item, showmore }: { item: any; showmore: any }) => {
       <div
         className={
           "font-timesnow text-base my-4 leading-8 overflow-hidden transition-all text-ellipsis    " +
-          (opened ? "max-h-[auto]" : "max-h-[220px] readmore")
+          (opened ? "max-h-[auto]" : "max-h-[255px] readmore")
         }
         dangerouslySetInnerHTML={{
           __html: documentToHtmlString(item.bio?.json),
@@ -130,7 +130,7 @@ export default function Index() {
           <div className="flex flex-wrap text-chicago lg:-mx-10">
             {teamPage.teamMembersCollection.items.map((_item, index) => {
               return (
-                <TeamCard item={_item} key={index} showmore={index == 0} />
+                <TeamCard item={_item} key={index} showmore={index == 0 ||} />
               );
             })}
           </div>
