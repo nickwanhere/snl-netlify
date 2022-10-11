@@ -25,6 +25,12 @@ export const loader: LoaderFunction = async () => {
 
 const TeamCard = ({ item, showmore }: { item: any; showmore: any }) => {
   const [opened, setOpened] = useState(false);
+
+  const showClass = showmore
+    ? opened
+      ? "max-h-[auto]"
+      : "max-h-[255px] readmore"
+    : "";
   return (
     <div className=" w-full lg:w-6/12 pb-10 mb-10  lg:pb-0 lg:mb-20 border-b lg:px-10  lg:border-b-0 lg:even:border-l border-[#DBDBCF]">
       <h3 className="text-3xl text-chicago font-timesnow mb-3">{item.name}</h3>
@@ -34,7 +40,7 @@ const TeamCard = ({ item, showmore }: { item: any; showmore: any }) => {
       <div
         className={
           "font-timesnow text-base my-4 leading-8 overflow-hidden transition-all text-ellipsis    " +
-          (opened ? "max-h-[auto]" : "max-h-[255px] readmore")
+          showClass
         }
         dangerouslySetInnerHTML={{
           __html: documentToHtmlString(item.bio?.json),
@@ -130,7 +136,7 @@ export default function Index() {
           <div className="flex flex-wrap text-chicago lg:-mx-10">
             {teamPage.teamMembersCollection.items.map((_item, index) => {
               return (
-                <TeamCard item={_item} key={index} showmore={index == 0 ||} />
+                <TeamCard item={_item} key={index} showmore={index == 0} />
               );
             })}
           </div>
