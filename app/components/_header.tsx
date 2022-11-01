@@ -335,13 +335,13 @@ export default function Header({ theme, hover, lang }) {
               </div>
               <div className="flex items-center justify-center font-light  mb-5">
                 <a
-                  href=""
+                  href={baseurl}
                   className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
                 >
                   <span>EN</span>
                 </a>
                 <a
-                  href=""
+                  href={jpurl}
                   className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
                 >
                   <span>日本語</span>
