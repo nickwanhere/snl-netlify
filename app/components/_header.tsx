@@ -234,6 +234,19 @@ export default function Header({ theme, hover, lang }) {
     },
   ];
 
+  const [baseurl, setBaseurl] = useState("");
+  const [jpurl, setJpurl] = useState("");
+
+  useEffect(() => {
+    const b = location.pathname.replace("/jp/", "/");
+    setBaseurl(b);
+
+    let j = b.split("/");
+    j[0] = "/jp";
+
+    setJpurl(j.join("/"));
+  }, []);
+
   return (
     <Popover className={hover ? "absolute w-full z-20 " : "relative"}>
       <div className="max-w-7xl mx-auto py-5 px-5 lg:px-3">
