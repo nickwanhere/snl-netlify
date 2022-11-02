@@ -11,9 +11,6 @@ const Footer = ({ footer, lang }) => {
         <div className="containner px-3 text-cararra text-center py-8">
           {lang == "en" && (
             <div className="mb-8">
-              <a href="/privacy" className="mx-4 text-13px text-medium">
-                Privacy Policy
-              </a>{" "}
               <a href="/terms" className="mx-4 text-13px text-medium">
                 Terms & Condition
               </a>
@@ -21,9 +18,6 @@ const Footer = ({ footer, lang }) => {
           )}
           {lang == "jp" && (
             <div className="mb-8">
-              <a href="/jp/privacy" className="mx-4 text-13px text-medium">
-                個人情報保護方針
-              </a>{" "}
               <a href="/jp/terms" className="mx-4 text-13px text-medium">
                 ご利用規約
               </a>
