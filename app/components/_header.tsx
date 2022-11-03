@@ -20,15 +20,20 @@ import {
 const Lang = ({ theme, lang }) => {
   const [baseurl, setBaseurl] = useState("");
   const [jpurl, setJpurl] = useState("");
+  const [cnurl, setCnurl] = useState("");
 
   useEffect(() => {
-    const b = location.pathname.replace("/jp/", "/");
+    const b = location.pathname.replace(/\/(jp|cn)\//, "/");
     setBaseurl(b);
 
     let j = b.split("/");
     j[0] = "/jp";
 
     setJpurl(j.join("/"));
+
+    j[0] = "/cn";
+
+    setCnurl(j.join("/"));
   }, []);
   return (
     <Menu as="div" className={"relative " + theme}>
@@ -92,6 +97,17 @@ const Lang = ({ theme, lang }) => {
               }
             >
               <span>日本語</span>
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a
+              href={cnurl}
+              className={
+                "my-1 menu-item relative inline-block leading-normal pb-1 " +
+                (theme == "text-white" ? "menu-item-white" : "")
+              }
+            >
+              <span>汉语</span>
             </a>
           </Menu.Item>
         </Menu.Items>
@@ -204,31 +220,38 @@ const Logo = ({ theme }) => {
 };
 
 export default function Header({ theme, hover, lang }) {
-  const baseUrl = lang == "en" ? "/" : "/jp/";
+  const baseUrl = lang == "en" ? "/" : lang == "jp" ? "/jp/" : "/cn/";
+  console.log(lang);
 
   const menu = [
     {
-      name: lang == "en" ? "About" : "スーパーノヴァ・ランドについて",
+      name:
+        lang == "en"
+          ? "About"
+          : lang == "jp"
+          ? "スーパーノヴァ・ランドについて"
+          : "关于",
       href: baseUrl + "about",
       icon: ChartBarIcon,
     },
     {
-      name: lang == "en" ? "Projects" : "プロジェクト",
+      name: lang == "en" ? "Projects" : lang == "jp" ? "プロジェクト" : "项目",
       href: baseUrl + "projects",
       icon: CursorClickIcon,
     },
     {
-      name: lang == "en" ? "Team" : "チーム",
+      name: lang == "en" ? "Team" : lang == "jp" ? "チーム" : "团队",
       href: baseUrl + "team",
       icon: ShieldCheckIcon,
     },
     {
-      name: lang == "en" ? "Press" : "プレス",
+      name: lang == "en" ? "Press" : lang == "jp" ? "プレス" : "新闻",
       href: baseUrl + "press",
       icon: ViewGridIcon,
     },
     {
-      name: lang == "en" ? "Contact" : "お問い合わせ",
+      name:
+        lang == "en" ? "Contact" : lang == "jp" ? "お問い合わせ" : "联系我们",
       href: baseUrl + "contact",
       icon: RefreshIcon,
     },
@@ -236,15 +259,20 @@ export default function Header({ theme, hover, lang }) {
 
   const [baseurl, setBaseurl] = useState("");
   const [jpurl, setJpurl] = useState("");
+  const [cnurl, setCnurl] = useState("");
 
   useEffect(() => {
-    const b = location.pathname.replace("/jp/", "/");
+    const b = location.pathname.replace(/\/(jp|cn)\//, "/");
     setBaseurl(b);
 
     let j = b.split("/");
     j[0] = "/jp";
 
     setJpurl(j.join("/"));
+
+    j[0] = "/cn";
+
+    setCnurl(j.join("/"));
   }, []);
 
   return (
@@ -358,6 +386,12 @@ export default function Header({ theme, hover, lang }) {
                   className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
                 >
                   <span>日本語</span>
+                </a>
+                <a
+                  href={cnurl}
+                  className="mx-3 text-cararra hover:text-white text-13px menu-item menu-item-white inline-block relative"
+                >
+                  <span>汉语</span>
                 </a>
               </div>
               <div className="flex items-center  justify-center my-5">

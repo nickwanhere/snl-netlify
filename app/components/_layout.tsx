@@ -23,6 +23,13 @@ const Footer = ({ footer, lang }) => {
               </a>
             </div>
           )}
+          {lang == "cn" && (
+            <div className="mb-8">
+              <a href="/cn/terms" className="mx-4 text-13px text-medium">
+                条款与条件
+              </a>
+            </div>
+          )}
           <div className="my-8 flex justify-center items-center">
             <a
               href="https://www.facebook.com/koaniseko/"
@@ -87,7 +94,7 @@ const Layout = ({ children, theme, footer, hover, lang }) => {
   }, []);
 
   return (
-    <div className={lang == "jp" ? "jp" : ""}>
+    <div className={lang == "en" ? "" : lang == "jp" ? "jp" : "cn"}>
       <Header theme={theme} hover={hover} lang={lang} />
 
       {children}

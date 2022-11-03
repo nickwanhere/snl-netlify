@@ -14,7 +14,7 @@ import axios from "axios";
 import type { LinksFunction, MetaFunction } from "@remix-run/{runtime}";
 
 export const meta: MetaFunction = () => ({
-  title: "お問い合わせ - SNL",
+  title: "联系我们 - SNL",
 });
 export const loader: LoaderFunction = async () => {
   // This API call will request an entry with the specified ID from the space defined at the top, using a space-specific access token.
@@ -76,70 +76,62 @@ const Form = ({ env }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          名
+          名字
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="お名前を入力してください"
+          placeholder="请输入名字"
           {...register("first_name", { required: true })}
         />
         {errors.first_name && (
-          <p className="text-sm text-red-600 text-beviet">
-            これは必要項目です。
-          </p>
+          <p className="text-sm text-red-600 text-beviet">这是一个必填字段。</p>
         )}
       </div>
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          姓
+          姓氏
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="姓を入力してください"
+          placeholder="请输入姓氏"
           {...register("last_name", { required: true })}
         />
         {errors.last_name && (
-          <p className="text-sm text-red-600 text-beviet">
-            これは必要項目です。
-          </p>
+          <p className="text-sm text-red-600 text-beviet">这是一个必填字段。</p>
         )}
       </div>
 
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          メールアドレス
+          电子邮箱
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="メールアドレスを入力"
+          placeholder="请输入电子邮件"
           type="email"
           {...register("email", { required: true })}
         />
         {errors.email && (
-          <p className="text-sm text-red-600 text-beviet">
-            これは必要項目です。
-          </p>
+          <p className="text-sm text-red-600 text-beviet">这是一个必填字段。</p>
         )}
       </div>
 
       <div className="mb-10">
         <label className="text-chicago font-timesnow text-lg block mb-1">
-          主題
+          主题
         </label>
         <input
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="件名を入力してください"
+          placeholder="请输入主题"
           type="text"
           {...register("subject", { required: true })}
         />
         {errors.email && (
-          <p className="text-sm text-red-600 font-beviet">
-            これは必要項目です。
-          </p>
+          <p className="text-sm text-red-600 font-beviet">这是一个必填字段。</p>
         )}
       </div>
 
@@ -150,14 +142,12 @@ const Form = ({ env }) => {
         <textarea
           className="border-b border-delta-400 appearance-none bg-transparent block w-full placeholder:text-xs font-beviet placeholder:text-delta-400 py-3 focus:outline-none tracking-[.2em] text-sm"
           autoComplete="off"
-          placeholder="内容を入力してください"
+          placeholder="请输入内容"
           rows={4}
           {...register("message", { required: true })}
         ></textarea>
         {errors.message && (
-          <p className="text-sm text-red-600 text-beviet">
-            これは必要項目です。
-          </p>
+          <p className="text-sm text-red-600 text-beviet">这是一个必填字段。</p>
         )}
       </div>
       <button
@@ -171,8 +161,7 @@ const Form = ({ env }) => {
         <p className="font-timesnow my-5 font-bold text-center">{serverRes}</p>
       )}
       <p className="italic font-timesnow text-base mt-8 lg:w-10/12 mx-auto leading-relaxed text-center text-extralight">
-        このサイトは reCAPTCHA によって保護されており、Google のプライバシー
-        ポリシーと利用規約が適用されます。
+        本网站受reCAPTCHA保护，适用谷歌隐私政策和服务条款。
       </p>
     </form>
   );
@@ -182,14 +171,14 @@ export default function Index() {
   const env = useLoaderData();
 
   return (
-    <Layout hover={false} theme={"text-black"} footer={true} lang={"jp"}>
+    <Layout hover={false} theme={"text-black"} footer={true} lang={"cn"}>
       <div className=" text-center pb-20 lg:pb-40 px-4">
         <h1 className="block mb-[40px] lg:mb-14 leading-zero text-chicago text-[40px] lg:text-[48px]  font-timesnow text-light ">
-          お問い合わせ
+          联系我们
         </h1>
         <div className="w-full lg:w-6/12 mx-auto text-base font-timesnow text-chicago mb-10 lg:mb-20">
           <p className="">
-            私たちの開発や拠点に関する詳細については、お気軽にお問い合わせください、すぐにお返事いたします。
+            如欲进一步了解我们的开发活动和项目地点，敬请联系我们。我们的团队将尽速回复您的咨询，也期待能与您面谈。
           </p>
         </div>
         <div className="w-full lg:w-4/12 mx-auto text-base font-timesnow text-chicago lg:px-7">

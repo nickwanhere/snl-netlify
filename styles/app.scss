@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap");
 
 @import "@glidejs/glide/dist/css/glide.core.min.css";
 @import "@glidejs/glide/dist/css/glide.theme.min.css";
@@ -175,7 +176,26 @@ body {
   }
 
   .font-timesnow {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif JP", serif;
+  }
+
+  .hptext {
+    writing-mode: vertical-rl;
+  }
+}
+
+.cn {
+  @apply font-cnfont;
+
+  .rich-text {
+    p,
+    h2 {
+      @apply font-cnfont;
+    }
+  }
+
+  .font-timesnow {
+    font-family: "Times Now", "Noto Serif SC", serif;
   }
 
   .hptext {

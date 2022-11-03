@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&display=swap");
 .glide{position:relative;width:100%;box-sizing:border-box}
 .glide *{box-sizing:inherit}
 .glide__track{overflow:hidden}
@@ -744,9 +745,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-20{padding-top:5rem}
 .pt-\[30rem\]{padding-top:30rem}
 .pb-14{padding-bottom:3.5rem}
-.pb-40{padding-bottom:10rem}
 .pb-10{padding-bottom:2.5rem}
 .pb-\[30px\]{padding-bottom:30px}
+.pb-40{padding-bottom:10rem}
 .text-left{text-align:left}
 .text-center{text-align:center}
 .text-right{text-align:right}
@@ -937,9 +938,18 @@ body {
 .jp{font-family:Noto Serif JP, serif;}
 .jp .rich-text p{font-family:Noto Serif JP, serif}
 .jp .font-timesnow {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif JP", serif;
   }
 .jp .hptext {
+    -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+  }
+.cn{font-family:Noto Serif SC, serif;}
+.cn .rich-text p, .cn .rich-text h2{font-family:Noto Serif SC, serif}
+.cn .font-timesnow {
+    font-family: "Times Now", "Noto Serif SC", serif;
+  }
+.cn .hptext {
     -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
   }
@@ -948,10 +958,16 @@ body {
 .rich-text p{font-size:1rem;line-height:1.5rem}
 .rich-text p{--tw-text-opacity:1;color:rgb(97 97 83 / var(--tw-text-opacity))}
  p {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif JP", serif;
   }
  p {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif SC", serif;
+  }
+ p {
+    font-family: "Times Now", "Noto Serif JP", serif;
+  }
+ p {
+    font-family: "Times Now", "Noto Serif SC", serif;
   }
 .rich-text h2 {
     font-size: 32px;
@@ -961,10 +977,16 @@ body {
 .rich-text h2{font-family:Times Now, serif}
 .rich-text h2{--tw-text-opacity:1;color:rgb(97 97 83 / var(--tw-text-opacity))}
  h2 {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif JP", serif;
   }
  h2 {
-    font-family: "Noto Serif JP", "Times Now", serif;
+    font-family: "Times Now", "Noto Serif SC", serif;
+  }
+ h2 {
+    font-family: "Times Now", "Noto Serif JP", serif;
+  }
+ h2 {
+    font-family: "Times Now", "Noto Serif SC", serif;
   }
 @media (min-width: 1024px){
 .rich-text h2{margin-bottom:2.5rem}}

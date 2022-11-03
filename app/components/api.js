@@ -18,6 +18,7 @@ async function fetchGraphQL(query, preview = false) {
 
 export async function getHome(lang) {
   const q = lang == "jp" ? "ja-JP" : "en-US";
+  const field_prefix = lang == "cn" ? "Cn" : "";
 
   const entries = await fetchGraphQL(
     `query {
@@ -26,9 +27,9 @@ export async function getHome(lang) {
       {
         items 
         {
-          title
-          heading
-          footer{
+          title: title${field_prefix}
+          heading: heading${field_prefix}
+          footer:footer${field_prefix}{
             json
           }
         }
@@ -40,8 +41,8 @@ export async function getHome(lang) {
       {
         url
       }
-      title
-      subTitle
+      title:title${field_prefix}
+      subTitle:subTitle${field_prefix}
       slug
     }
   }
@@ -69,6 +70,7 @@ export async function getPage(slug, lang) {
 
 export async function getAbout(lang) {
   const q = lang == "jp" ? "ja-JP" : "en-US";
+  const field_prefix = lang == "cn" ? "Cn" : "";
   const entries = await fetchGraphQL(
     `query 
     {
@@ -76,33 +78,35 @@ export async function getAbout(lang) {
   {
     items
     {
-      title
+      title:title${field_prefix}
       image
       {
           url(transform:{width:645})
       }
-      leftText
+      leftText:leftText${field_prefix}
       {
         json
       }
-      rightText
+      rightText:rightText${field_prefix}
       {
         json
       }
-      quote
+      quote:quote${field_prefix}
       {
         json
       }
-      quotePerson
+      quotePerson:quotePerson${field_prefix}
     }
   }
     }`
   );
+
   return entries;
 }
 
 export async function getTeam(lang) {
   const q = lang == "jp" ? "ja-JP" : "en-US";
+  const field_prefix = lang == "cn" ? "Cn" : "";
   const ids = await fetchGraphQL(
     `query {
    teamCollection(locale: "${q}") { items{
@@ -121,8 +125,8 @@ export async function getTeam(lang) {
     `query {
    team(id:"${teamId}",locale: "${q}"){
   
-      title
-      subText
+      title:title${field_prefix}
+      subText:subText${field_prefix}
       {
         json
       }
@@ -136,7 +140,7 @@ export async function getTeam(lang) {
           description
         }
       }
-      teamMembersCollection 
+      teamMembersCollection:teamMembers${field_prefix}Collection
       {
         items 
         {
@@ -183,6 +187,7 @@ export async function getPress(lang) {
 
 export async function getProjects(lang) {
   const q = lang == "jp" ? "ja-JP" : "en-US";
+  const field_prefix = lang == "cn" ? "Cn" : "";
   const entries = await fetchGraphQL(
     `query {
   projectCollection(order:[sys_publishedAt_ASC],locale: "${q}")
@@ -192,8 +197,8 @@ export async function getProjects(lang) {
       {
         url
       }
-      title
-      subTitle
+      title:title${field_prefix}
+      subTitle:subTitle${field_prefix}
       slug
     }
   }
@@ -204,6 +209,7 @@ export async function getProjects(lang) {
 
 export async function getProject(slug, lang) {
   const q = lang == "jp" ? "ja-JP" : "en-US";
+  const field_prefix = lang == "cn" ? "Cn" : "";
   const entries = await fetchGraphQL(
     `query {
 projectCollection(where:{ 
@@ -216,13 +222,13 @@ projectCollection(where:{
       {
         publishedAt
       }
-    title
+    title:title${field_prefix}
     heroBanner
     {
       url
     }
-    subTitle
-    blocksCollection(preview:false)
+    subTitle:subTitle${field_prefix}
+    blocksCollection:blocks${field_prefix}Collection(preview:false)
     {
 				items
       {
